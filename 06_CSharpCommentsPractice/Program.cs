@@ -1,33 +1,20 @@
-﻿/*
-  This program demonstrates effective code comments.
-  The purpose is to practice adding comments that explain
-  the reason behind code.
-*/
+﻿string message = "The quick brown fox jumps over the lazy dog.";
 
-string firstName = "Bob";
-int widgetsPurchased = 7;
+char[] messageCharacters = message.ToCharArray();
 
-// Display the purchase information.
-Console.WriteLine($"{firstName} purchased {widgetsPurchased} widgets.");
+Array.Reverse(messageCharacters);
 
+int letterCount = 0;
 
-/*
-  The following code creates random OrderIDs
-  to simulate a fraud detection test.
-*/
-Random random = new Random();
-string[] orderIDs = new string[5];
-
-for (int i = 0; i < orderIDs.Length; i++)
+foreach (char character in messageCharacters)
 {
-    int prefixValue = random.Next(65, 70);
-    string prefix = Convert.ToChar(prefixValue).ToString();
-    string suffix = random.Next(1, 1000).ToString("000");
-
-    orderIDs[i] = prefix + suffix;
+    if (character == 'o')
+    {
+        letterCount++;
+    }
 }
 
-foreach (var orderID in orderIDs)
-{
-    Console.WriteLine(orderID);
-}
+string reversedMessage = new string(messageCharacters);
+
+Console.WriteLine(reversedMessage);
+Console.WriteLine($"'o' appears {letterCount} times.");
